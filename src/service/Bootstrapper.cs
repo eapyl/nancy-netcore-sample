@@ -5,6 +5,7 @@ using Nancy.Bootstrapper;
 using Nancy.Configuration;
 using Nancy.Diagnostics;
 using Nancy.TinyIoc;
+using Newtonsoft.Json;
 
 namespace SampleNancy
 {
@@ -33,6 +34,7 @@ namespace SampleNancy
         {
             base.ConfigureApplicationContainer(container);
             container.Register(serviceProvider.GetService(typeof(ILoggerFactory)) as ILoggerFactory);
+            container.Register<JsonSerializer, NewtonSoftSerializer>();
         }
     }
 }
